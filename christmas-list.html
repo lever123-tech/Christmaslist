@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Christmas Wishlist 🎄</title>
+  <style>
+    :root {
+      --red: #c0392b;
+      --green: #1e7e34;
+      --gold: #f1c40f;
+      --snow: #f7fafc;
+      --card: #ffffff;
+      --ink: #1f2937;
+      --muted: #6b7280;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at top, #1a3a2a 0%, #0b1f16 60%, #050d09 100%);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+    .snow {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+        radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 90px 40px, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 130px 80px, #fff, transparent),
+        radial-gradient(2px 2px at 160px 120px, #fff, transparent);
+      background-size: 200px 200px;
+      opacity: 0.35;
+      animation: snowfall 12s linear infinite;
+    }
+    @keyframes snowfall { from { background-position: 0 0; } to { background-position: 0 200px; } }
+
+    header {
+      position: relative; z-index: 1;
+      text-align: center; padding: 48px 20px 20px;
+      color: #fff;
+    }
+    header h1 {
+      margin: 0; font-size: clamp(2rem, 5vw, 3.2rem);
+      letter-spacing: 1px;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+    header .sub { margin: 8px 0 0; color: #d1fae5; font-size: 1.1rem; }
+    .badge {
+      display: inline-block; margin-top: 14px;
+      background: var(--gold); color: #1f2937; font-weight: 700;
+      padding: 6px 14px; border-radius: 999px; font-size: 0.9rem;
+    }
+
+    main {
+      position: relative; z-index: 1;
+      max-width: 1100px; margin: 0 auto; padding: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 360px));
+      gap: 22px;
+      justify-content: center;
+      justify-items: center;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      display: flex; flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.45); }
+    .card .img-wrap {
+      background: #f3f4f6;
+      aspect-ratio: 4 / 3;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .card img { width: 100%; height: 100%; object-fit: contain; }
+    .card .body { padding: 16px 18px 18px; flex: 1; display: flex; flex-direction: column; }
+    .card h3 { margin: 0 0 6px; font-size: 1.05rem; color: var(--ink); }
+    .card .price { font-weight: 700; color: var(--red); margin-bottom: 8px; }
+    .card .desc { color: var(--muted); font-size: 0.9rem; margin-bottom: 12px; flex: 1; }
+    .card .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; }
+    .btn {
+      display: inline-block; text-align: center;
+      background: var(--red); color: #fff; text-decoration: none;
+      padding: 10px 14px; border-radius: 10px; font-weight: 600;
+      transition: background 0.15s;
+    }
+    .btn:hover { background: #a93226; }
+    .btn-outline {
+      background: transparent; color: var(--green);
+      border: 2px dashed var(--green);
+    }
+    .btn-outline:hover { background: #e8f5e9; }
+
+    /* empty / add slots */
+    .card.empty {
+      border: 2px dashed #9ca3af;
+      background: repeating-linear-gradient(
+        45deg, #ffffff 0 12px, #f9fafb 12px 24px
+      );
+      align-items: center; justify-content: center;
+      text-align: center; min-height: 320px;
+    }
+    .card.empty .plus {
+      font-size: 3rem; color: var(--muted); line-height: 1;
+    }
+    .card.empty h3 { color: var(--muted); }
+    .card.empty p { color: var(--muted); font-size: 0.9rem; margin: 6px 0 14px; }
+
+    footer {
+      position: relative; z-index: 1;
+      text-align: center; padding: 30px 20px 40px; color: #d1fae5;
+    }
+    footer small { opacity: 0.7; }
+
+    @media (max-width: 480px) {
+      header { padding: 32px 16px 16px; }
+      main { padding: 16px; }
+      .grid { gap: 16px; }
+      .card { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="snow"></div>
+  <header>
+    <h1>🎄 My Christmas Wishlist 🎅</h1>
+    <span class="badge">Levi's List</span>
+  </header>
+
+  <main>
+    <div class="grid">
+      <!-- ITEM 1: filled -->
+      <article class="card">
+        <div class="img-wrap">
+          <img src="images/monitor.jpg" alt="HP OMEN 27qs G2 Gaming Monitor" />
+        </div>
+        <div class="body">
+          <h3>HP OMEN 27" QHD 280Hz Gaming Monitor (OMEN 27qs G2)</h3>
+          <div class="price">$169.99 <span style="color:#6b7280;font-weight:400;font-size:.85rem;">(was $254.69)</span></div>
+          <p class="desc">27" IPS Black panel, 2560×1440 QHD, blazing 280Hz refresh, 1ms MPRT, VESA DisplayHDR 400, NVIDIA G-SYNC compatible. Fully adjustable stand.</p>
+          <div class="meta">Brand: HP · ASIN: B0FR8JDNC7 · ★ 4.7 (22 reviews)</div>
+          <a class="btn" href="https://a.co/d/0fF5nOpS" target="_blank" rel="noopener">View on Amazon →</a>
+        </div>
+      </article>
+
+      <!-- ITEM 2: filled -->
+      <article class="card">
+        <div class="img-wrap">
+          <img src="images/nike-pants.jpg" alt="Nike Men's Club Open Hem Brushed Fleece Pants - Black, Medium" />
+        </div>
+        <div class="body">
+          <h3>Nike Men's Club Open Hem Brushed Fleece Pants</h3>
+          <div class="price">$65.00</div>
+          <p class="desc">Midweight brushed fleece sweatpants with open hem and standard fit. Soft inside, smooth outside. Elastic waistband with drawcord, side + snap back pockets.</p>
+          <div class="meta">Brand: Nike · Color: Black/Black/White · Size: Medium · Style: FN3730-010 · ★ 4.4 (903 reviews)</div>
+          <a class="btn" href="https://www.amazon.com/dp/B0F1582BQC/ref=twister_B0F1657L2W?th=1&psc=1" target="_blank" rel="noopener">View on Amazon →</a>
+        </div>
+      </article>
+
+      <!-- ITEM 3: filled -->
+      <article class="card" style="grid-column:1 / -1; justify-self:center; max-width:320px; text-align:center;">
+        <div class="img-wrap">
+          <img src="images/ae-rb-tshirt.jpg" alt="Oracle Red Bull Racing x AE Boxy Fit Graphic T-Shirt - Dusted Slate, Medium" />
+        </div>
+        <div class="body">
+          <h3>Oracle Red Bull Racing x AE Boxy Fit Graphic T-Shirt</h3>
+          <div class="price">$23.97 <span style="color:#6b7280;font-weight:400;font-size:.85rem;">(was $39.95, 40% off)</span></div>
+          <p class="desc">Boxy fit graphic tee — wider and slightly shorter than standard fit. 100% cotton, soft and breathable. Oracle Red Bull Racing collab.</p>
+          <div class="meta">Brand: American Eagle · Color: Dusted Slate · Size: Medium · Fit: Boxy</div>
+          <a class="btn" href="https://www.ae.com/us/en/p/men/tops/graphic-tops/oracle-red-bull-racing-x-ae-boxy-fit-graphic-t-shirt/0185_6041_023?ip=off" target="_blank" rel="noopener">View on AE →</a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>🎅 Merry Christmas &amp; Happy Holidays! 🎄</p>
+  </footer>
+</body>
+</html>
